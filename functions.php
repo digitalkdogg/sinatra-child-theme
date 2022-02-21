@@ -13,12 +13,24 @@ if ( !function_exists( 'chld_thm_cfg_locale_css' ) ):
     }
 endif;
 add_filter( 'locale_stylesheet_uri', 'chld_thm_cfg_locale_css' );
-         
+
 if ( !function_exists( 'child_theme_configurator_css' ) ):
     function child_theme_configurator_css() {
         wp_enqueue_style( 'chld_thm_cfg_child', trailingslashit( get_stylesheet_directory_uri() ) . 'style.css', array( 'sinatra-styles' ) );
     }
 endif;
 add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
+
+
+
+if ( ! defined( 'SINATRA_THEME_PATH' ) ) {
+  define( 'SINATRA_THEME_PATH', get_parent_theme_file_path() . '-child');
+}
+
+// Customizer.
+require_once SINATRA_THEME_PATH . '/inc/customizer/class-sinatra-customizer.php';
+
+		$all_settings = get_theme_mods();
+
 
 // END ENQUEUE PARENT ACTION
