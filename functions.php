@@ -21,7 +21,9 @@ if ( !function_exists( 'child_theme_configurator_css' ) ):
 endif;
 add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
 
-
+wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'before');
+wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/base.js' );
+wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
 
 if ( ! defined( 'SINATRA_THEME_PATH' ) ) {
   define( 'SINATRA_THEME_PATH', get_parent_theme_file_path() . '-child');
@@ -30,7 +32,7 @@ if ( ! defined( 'SINATRA_THEME_PATH' ) ) {
 // Customizer.
 require_once SINATRA_THEME_PATH . '/inc/customizer/class-sinatra-customizer.php';
 
-		$all_settings = get_theme_mods();
+$all_settings = get_theme_mods();
 
 
 // END ENQUEUE PARENT ACTION

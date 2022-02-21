@@ -1,0 +1,8 @@
+.si-container {
+    overflow: hidden;
+}
+
+.force-full-width .wp-block-cover__inner-container {
+    max-width: 1600px;
+    padding:0 20px;
+}
