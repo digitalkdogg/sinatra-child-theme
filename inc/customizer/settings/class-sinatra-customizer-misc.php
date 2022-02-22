@@ -49,14 +49,14 @@ if ( ! class_exists( 'Sinatra_Customizer_Misc' ) ) :
 			);
 
 			// Excerpt more.
-			$options['setting']['kevin'] = array(
+			$options['setting']['sitename'] = array(
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'sanitize_text_field',
 				'control'           => array(
 					'type'        => 'sinatra-text',
 					'section'     => 'sinatra_section_misc',
-					'label'       => esc_html__( 'kevin', 'sinatra' ),
-					'description' => esc_html__( 'Is Kevin Awesome', 'sinatra' ),
+					'label'       => esc_html__( 'site', 'sinatra' ),
+					'description' => esc_html__( 'Site Name', 'sinatra' ),
 				),
 			);
 

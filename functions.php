@@ -21,18 +21,45 @@ if ( !function_exists( 'child_theme_configurator_css' ) ):
 endif;
 add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
 
-wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'before');
-wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/base.js' );
-wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
+if ( ! function_exists( 'enqueue_custom_stuff' ) ) {
+	function enqueue_custom_stuff() {
+    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'before');
+    wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/base.js' );
+    wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_stuff' );
+
 
 if ( ! defined( 'SINATRA_THEME_PATH' ) ) {
   define( 'SINATRA_THEME_PATH', get_parent_theme_file_path() . '-child');
 }
-
 // Customizer.
 require_once SINATRA_THEME_PATH . '/inc/customizer/class-sinatra-customizer.php';
 
 $all_settings = get_theme_mods();
+
+function get_custom_vars() {
+  $json_str = '';
+
+  $json_str = 'stylesheet_dir-_-'. get_stylesheet_directory_uri();
+  $json_str = $json_str . '===testing-_-test2';
+
+  return $json_str;
+
+}
+
+function get_sitename_var() {
+  $all_settings = get_theme_mods();
+
+  if (strlen($all_settings['sitename']) > 0) {
+    return $all_settings['sitename'];
+  }
+  return 'millwood';
+
+//  return $json_str;
+
+}
 
 
 // END ENQUEUE PARENT ACTION
