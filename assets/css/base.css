@@ -6,3 +6,16 @@
     max-width: 1600px;
     padding:0 20px;
 }
+
+button.btn {
+    background: #c81e1e;
+    padding: 10px;
+    border-style: solid;
+    border: none;
+}
+
+button.btn:hover {
+    filter: contrast(0.7); 
+    transition: 1s all;
+    cursor: pointer;
+}
