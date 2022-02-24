@@ -1,3 +1,7 @@
+body {
+  font-size:18px;
+}
+
 .si-container {
     overflow: hidden;
 }
@@ -12,10 +16,19 @@ button.btn {
     padding: 10px;
     border-style: solid;
     border: none;
+    color:white;
 }
 
 button.btn:hover {
-    filter: contrast(0.7); 
+    filter: contrast(0.7);
     transition: 1s all;
     cursor: pointer;
+}
+
+.flex {
+  display:flex;
+}
+
+.flex.flex-center {
+    justify-content: center;
 }
