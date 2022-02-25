@@ -46,5 +46,5 @@ $(document).ready(function () {
         millwood.fn.force_full_width()
     })
 
-    console.log(millwood)
+//    console.log(millwood)
 })
