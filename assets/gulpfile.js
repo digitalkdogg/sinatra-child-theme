@@ -14,9 +14,11 @@ const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 
+const clean = require('gulp-clean');
+
 var sassPaths = [
   //  'bower_components/normalize.scss/sass',
-    '../assets/css/*.scss'
+    './css/*.scss'
 ];
 
 function defaultTask(cb) {
@@ -31,14 +33,17 @@ function js() {
       .pipe(changed(source))
       .pipe(concat('base.min.js'))
       .pipe(uglify())
-      .pipe(dest('../assets/js/'));
-    //  .pipe(browsersync.stream());
+      .pipe(dest('../assets/min/js/', {overwrite:true}))
+      .on('before', function (sourcemin) {
+      //  sourcemin.pipe(clean());
+      })
+
 }
 
 function css() {
 
   //  const source = sassPaths;
-  const source = '../assets/css/*.scss';
+  const source = './css/*.scss';
     //return src(source)
     return src(source)
         .pipe(changed(source))
@@ -51,10 +56,17 @@ function css() {
             extname: '.css'
         }))
         .pipe(cssnano())
-        .pipe(dest('../assets/css/'));
+        .pipe(dest('./css/'));
       //  .pipe(browsersync.stream());
+}
+
+function clear() {
+  console.log('i am clear');
+  const source = '../assets/js/*.min.js';
+  return src(source).pipe(clean());
 }
 
 
 //exports.default = defaultTask
+//exports.task(clear);
 exports.default = series(parallel(js,css, defaultTask));
