@@ -1,0 +1,31 @@
+body {
+  font-size:18px;
+  .si-container {
+      overflow: hidden;
+  }
+
+  .force-full-width .wp-block-cover__inner-container {
+      max-width: 1600px;
+      padding:0 20px;
+  }
+
+  button.btn {
+      background: #c81e1e;
+      padding: 10px;
+      border-style: solid;
+      border: none;
+      color:white;
+      &:hover {
+        filter: contrast(0.7);
+        transition: 1s all;
+        cursor: pointer;
+      }
+  }
+  .flex {
+    display:flex;
+    &.flex-center {
+        justify-content: center;
+    }
+  }
+
+}
