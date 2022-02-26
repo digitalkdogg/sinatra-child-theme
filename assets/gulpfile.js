@@ -14,7 +14,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 
-const clean = require('gulp-clean');
+//const clean = require('gulp-clean');
 
 var sassPaths = [
   //  'bower_components/normalize.scss/sass',
@@ -33,10 +33,7 @@ function js() {
       .pipe(changed(source))
       .pipe(concat('base.min.js'))
       .pipe(uglify())
-      .pipe(dest('../assets/min/js/', {overwrite:true}))
-      .on('before', function (sourcemin) {
-      //  sourcemin.pipe(clean());
-      })
+      .pipe(dest('../assets/js/min', {overwrite:true}))
 
 }
 
@@ -60,11 +57,11 @@ function css() {
       //  .pipe(browsersync.stream());
 }
 
-function clear() {
-  console.log('i am clear');
-  const source = '../assets/js/*.min.js';
-  return src(source).pipe(clean());
-}
+//function clear() {
+//  console.log('i am clear');
+//  const source = '../assets/js/*.min.js';
+//  return src(source).pipe(clean());
+//}
 
 
 //exports.default = defaultTask
