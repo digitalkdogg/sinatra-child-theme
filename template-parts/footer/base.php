@@ -14,7 +14,7 @@
 	<div class="si-container">
 		<div class="si-flex-row" id="sinatra-footer-widgets">
 
-			<?php sinatra_footer_widgets(); ?>
+			<?php millwood_footer_widgets(); ?>
 
 		</div><!-- END .si-flex-row -->
 	</div><!-- END .si-container -->

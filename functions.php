@@ -24,7 +24,7 @@ add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
 if ( ! function_exists( 'enqueue_custom_stuff' ) ) {
 	function enqueue_custom_stuff() {
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'before');
-    wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/min/base.min.js' );
+    wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/base.min.js' );
     wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
   }
 }
@@ -60,6 +60,60 @@ function get_sitename_var() {
 //  return $json_str;
 
 }
+
+if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
+	/**
+	 * Outputs the footer widgets.
+	 *
+	 * @since 1.0.0
+	 */
+	function millwood_footer_widgets() {
+
+		$footer_layout  = sinatra_option( 'footer_layout' );
+		$column_classes = sinatra_get_footer_column_class( $footer_layout );
+    if (!$column_classes && $footer_layout == 'layout-5') {
+      $column_classes = array('col-xs-12 col-sm-6 stretch-xs col-md-6', 'col-xs-12 col-sm-6 stretch-xs col-md-6');
+    }
+
+		if ( is_array( $column_classes ) && ! empty( $column_classes ) ) {
+			foreach ( $column_classes as $i => $column_class ) {
+
+				$sidebar_id = 'sinatra-footer-' . ( $i + 1 );
+				?>
+				<div class="sinatra-footer-column <?php echo esc_attr( $column_class ); ?>">
+					<?php
+					if ( is_active_sidebar( $sidebar_id ) ) {
+						dynamic_sidebar( $sidebar_id );
+					} else {
+
+						if ( current_user_can( 'edit_theme_options' ) ) {
+
+							$sidebar_name = sinatra_get_sidebar_name_by_id( $sidebar_id );
+							?>
+							<div class="si-footer-widget si-widget sinatra-no-widget">
+
+								<div class='h4 widget-title'><?php echo esc_html( $sidebar_name ); ?></div>
+
+								<p class='no-widget-text'>
+									<?php if ( is_customize_preview() ) { ?>
+										<a href='#' class="sinatra-set-widget" data-sidebar-id="<?php echo esc_attr( $sidebar_id ); ?>">
+									<?php } else { ?>
+										<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+									<?php } ?>
+										<?php esc_html_e( 'Click here to assign a widget.', 'sinatra' ); ?>
+									</a>
+								</p>
+							</div>
+							<?php
+						}
+					}
+					?>
+				</div>
+				<?php
+			}
+		}
+	}
+endif;
 
 
 // END ENQUEUE PARENT ACTION
