@@ -30,5 +30,18 @@ body {
           justify-content: center;
       }
     }
+    .wp-block-gallery {
+      figure.wp-block-image {
+        figcaption {
+          background:rgba(0,0,0,0.7);
+          text-shadow: 1px white white;
+          font-weight: bold;
+          font-size:.7em;
+          @media only screen and (min-width: 800px) {
+            font-size:1em;
+          }
+        }
+      }
+    }
   }
 }
