@@ -20,6 +20,9 @@ body {
 
   div#main.site-main {
     overflow: hidden;
+    #primary {
+      margin-top:0;
+    }
     .force-full-width .wp-block-cover__inner-container {
         max-width: 1600px;
         padding:0 20px;
