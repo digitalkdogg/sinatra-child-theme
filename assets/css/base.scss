@@ -25,6 +25,20 @@ body {
         padding:0 20px;
     }
 
+    @media only screen and (min-width: 800px) {
+      .margin-l-r-20-desktop-per {
+        margin-left:20%;
+        margin-right:20%;
+      }
+    }
+
+    @media only screen and (min-width: 800px) {
+      .margin-l-r-35-desktop-per {
+        margin-left:20%;
+        margin-right:20%;
+      }
+    }
+
     button.btn {
         background: #c81e1e;
         padding: 10px;
