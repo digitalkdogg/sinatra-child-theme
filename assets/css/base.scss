@@ -2,35 +2,37 @@ body {
   font-size:18px;
   &.si-sticky-header {
     #sinatra-header-inner {
-      backdrop-filter: blur(3px) saturate(0.5);
+      backdrop-filter: blur(7px) saturate(0.5);
     }
   }
-  .si-container {
-      overflow: hidden;
-  }
+  /*.si-container {
+      overflow-x: hidden;
+      overflow-y:visible;
+  } */
+  div#main.site-main {
+    overflow: hidden;
+    .force-full-width .wp-block-cover__inner-container {
+        max-width: 1600px;
+        padding:0 20px;
+    }
 
-  .force-full-width .wp-block-cover__inner-container {
-      max-width: 1600px;
-      padding:0 20px;
-  }
-
-  button.btn {
-      background: #c81e1e;
-      padding: 10px;
-      border-style: solid;
-      border: none;
-      color:white;
-      &:hover {
-        filter: contrast(0.7);
-        transition: 1s all;
-        cursor: pointer;
+    button.btn {
+        background: #c81e1e;
+        padding: 10px;
+        border-style: solid;
+        border: none;
+        color:white;
+        &:hover {
+          filter: contrast(0.7);
+          transition: 1s all;
+          cursor: pointer;
+        }
+    }
+    .flex {
+      display:flex;
+      &.flex-center {
+          justify-content: center;
       }
-  }
-  .flex {
-    display:flex;
-    &.flex-center {
-        justify-content: center;
     }
   }
-
 }
