@@ -58,6 +58,9 @@ body {
       &.flex-center {
           justify-content: center;
       }
+      &.space-between {
+        justify-content: space-between;
+      }
     }
     .wp-block-gallery {
       figure.wp-block-image {
