@@ -5,6 +5,19 @@ body {
       backdrop-filter: blur(7px) saturate(0.5);
     }
   }
+
+  /* on mobile only */
+  &.sinatra-is-mobile {
+    #sinatra-header {
+      .si-container.si-header-container {
+        padding:0 20px;
+        .sinatra-logo .site-title {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
   div#main.site-main {
     overflow: hidden;
     .force-full-width .wp-block-cover__inner-container {
