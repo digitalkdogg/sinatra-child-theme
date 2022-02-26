@@ -1,5 +1,10 @@
 body {
   font-size:18px;
+  &.si-sticky-header {
+    #sinatra-header-inner {
+      backdrop-filter: blur(3px) saturate(0.5);
+    }
+  }
   .si-container {
       overflow: hidden;
   }

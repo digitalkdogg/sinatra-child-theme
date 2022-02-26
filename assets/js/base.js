@@ -11,6 +11,9 @@ class Millwood {
         },
         this.fn = {
             'init': function () {
+                if (sitename != undefined) {
+                  $('body').addClass(sitename);
+                }
                 _this.fn.force_full_width()
                 _this.fn.get_custom_vars();
             },
