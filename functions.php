@@ -75,6 +75,10 @@ if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
       $column_classes = array('col-xs-12 col-sm-6 stretch-xs col-md-6', 'col-xs-12 col-sm-6 stretch-xs col-md-6');
     }
 
+    if (!$column_classes && $footer_layout == 'layout-6') {
+      $column_classes = array('col-xs-12 col-sm-12 stretch-xs col-md-12');
+    }
+
 		if ( is_array( $column_classes ) && ! empty( $column_classes ) ) {
 			foreach ( $column_classes as $i => $column_class ) {
 

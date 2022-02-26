@@ -89,6 +89,10 @@ if ( ! class_exists( 'Sinatra_Customizer_Main_Footer' ) ) :
 							'image' => SINATRA_THEME_URI . '-child/inc/customizer/assets/images/footer-layout-50-50.svg',
 							'title' => esc_html__( '1/2 + 1/2', 'sinatra' ),
 						),
+						'layout-6' => array(
+							'image' => SINATRA_THEME_URI . '-child/inc/customizer/assets/images/footer-layout-1-col.svg',
+							'title' => esc_html__( 'Single Column', 'sinatra' ),
+						),
 					),
 					'required'    => array(
 						array(
