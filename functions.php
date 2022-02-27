@@ -26,6 +26,11 @@ if ( ! function_exists( 'enqueue_custom_stuff' ) ) {
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'before');
     wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/min/base.min.js' );
     wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
+
+    if (is_page_template( 'page-templates/donate-page.php' )) {
+            wp_enqueue_script( 'donatejs', get_stylesheet_directory_uri() . '/assets/js/min/donate.min.js' );
+            wp_enqueue_style( 'donatecss', get_stylesheet_directory_uri() . '/assets/css/donate.css' );
+    }
   }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_stuff' );
@@ -57,9 +62,29 @@ function get_sitename_var() {
   }
   return 'millwood';
 
-//  return $json_str;
+}
+
+function get_stripe_var() {
+  $all_settings = get_theme_mods();
+  $stripe_data = array();
+  if (strlen($all_settings['stripe_test_key']) > 0) {
+    $stripe_data['stripe_api_test_key'] = $all_settings['stripe_test_key'];
+  }
+
+  if (strlen($all_settings['stripe_use_test_data']) > 0) {
+    $stripe_data['use_test_data'] = $all_settings['stripe_use_test_data'];
+  }
+
+
+  if (isset($all_settings['stripe_live_key'])) {
+    $stripe_data['stripe_api_live_key'] = $all_settings['stripe_live_key'];
+  }
+
+  return json_encode($stripe_data);
 
 }
+
+
 
 if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
 	/**
@@ -118,6 +143,66 @@ if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
 		}
 	}
 endif;
+
+
+function get_stripe_intent2 ($parms){
+
+  return "hello";
+}
+
+/**
+* Generates new stripe intent
+* @param array $data Options for the function.
+* @return $object, or null if none.  */
+
+ function get_stripe_intent ( $params ){
+
+ 		$all_settings = get_theme_mods();
+
+
+    require_once($all_settings['stripe_base_path'] . '/stripe-php/init.php');
+
+
+    if ($all_settings['stripe_use_test_data']==false) {
+      $stripe = new \Stripe\StripeClient(
+        $all_settings['stripe_live_secret']
+      );
+    } else {
+      $stripe = new \Stripe\StripeClient(
+      	$all_settings['stripe_test_secret']
+      );
+    }
+
+      $customer = $stripe->customers->create([
+        'description' => $params['name'],
+        'email' =>$params['email'],
+        'address' => $params['address'],
+      ]);
+
+      $response = $stripe->paymentIntents->create([
+        'amount' => $params['amount'],
+        'currency' => 'usd',
+        'receipt_email'=>$params['email'],
+        'description'=>$params['name'],
+        'customer'=>$customer->id,
+        'payment_method_types' => ['card'],
+      ]);
+
+      $response['customer'] =$customer;
+
+       return $response;
+
+ }
+
+
+add_action( 'rest_api_init', function () {
+       register_rest_route('stripe/v1', 'create_intent', array(
+         'methods' => 'POST',
+         'callback' => 'get_stripe_intent'
+       ));
+});
+
+//add_action("wp_ajax_my_user_vote", "get_stripe_intent2");
 
 
 // END ENQUEUE PARENT ACTION

@@ -61,6 +61,75 @@ if ( ! class_exists( 'Sinatra_Customizer_Misc' ) ) :
 			);
 
 			// Schema toggle.
+			$options['setting']['stripe_use_test_data'] = array(
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sinatra_sanitize_toggle',
+				'control'           => array(
+					'type'        => 'sinatra-toggle',
+					'label'       => esc_html__( 'Stripe Use Test Data', 'sinatra' ),
+					'description' => esc_html__( 'Use the stripe data options.', 'sinatra' ),
+					'section'     => 'sinatra_section_misc',
+				),
+			);
+
+			// Excerpt more.
+			$options['setting']['stripe_test_key'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'section'     => 'sinatra_section_misc',
+					'label'       => esc_html__( 'Stripe Test Key', 'sinatra' ),
+					'description' => esc_html__( 'Test key for the stripe api', 'sinatra' ),
+				),
+			);
+
+			$options['setting']['stripe_test_secret'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'section'     => 'sinatra_section_misc',
+					'label'       => esc_html__( 'Stripe Test Secret', 'sinatra' ),
+					'description' => esc_html__( 'Test secret for the stripe api', 'sinatra' ),
+				),
+			);
+
+			// Excerpt more.
+			$options['setting']['stripe_live_key'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'section'     => 'sinatra_section_misc',
+					'label'       => esc_html__( 'Stripe Live Key', 'sinatra' ),
+					'description' => esc_html__( 'Live key for the stripe api', 'sinatra' ),
+				),
+			);
+
+			$options['setting']['stripe_live_secret'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'section'     => 'sinatra_section_misc',
+					'label'       => esc_html__( 'Stripe Live Secret', 'sinatra' ),
+					'description' => esc_html__( 'Live secret for the stripe api', 'sinatra' ),
+				),
+			);
+
+			$options['setting']['stripe_base_path'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'section'     => 'sinatra_section_misc',
+					'label'       => esc_html__( 'Stripe Base Path', 'sinatra' ),
+					'description' => esc_html__( 'Select the path so that it picks up the stripe helper library', 'sinatra' ),
+				),
+			);
+
+			// Schema toggle.
 			$options['setting']['sinatra_enable_schema'] = array(
 				'transport'         => 'postMessage',
 				'sanitize_callback' => 'sinatra_sanitize_toggle',

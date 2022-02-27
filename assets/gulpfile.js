@@ -37,6 +37,17 @@ function js() {
 
 }
 
+function donatejs() {
+  const source = '../assets/js/donate/*.js';
+
+  return src(source)
+      .pipe(changed(source))
+      .pipe(concat('donate.min.js'))
+      .pipe(uglify())
+      .pipe(dest('../assets/js/min', {overwrite:true}))
+
+}
+
 function css() {
 
   //  const source = sassPaths;
@@ -57,13 +68,28 @@ function css() {
       //  .pipe(browsersync.stream());
 }
 
-//function clear() {
-//  console.log('i am clear');
-//  const source = '../assets/js/*.min.js';
-//  return src(source).pipe(clean());
-//}
+function donatecss() {
+
+  //  const source = sassPaths;
+  const source = './css/donate/*.scss';
+    //return src(source)
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano())
+        .pipe(dest('./css/'));
+      //  .pipe(browsersync.stream());
+}
+
 
 
 //exports.default = defaultTask
 //exports.task(clear);
-exports.default = series(parallel(js,css, defaultTask));
+exports.default = series(parallel(js,donatejs,donatecss, css, defaultTask));

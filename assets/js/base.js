@@ -38,16 +38,14 @@ class Millwood {
         }
     }
 }
-
+  var millwood = null;
 $(document).ready(function () {
   let sitename = $('input#sitename').val();
 
-  const millwood = new Millwood(sitename);
+    millwood = new Millwood(sitename);
     millwood.fn.init()
 
     $(window).on('resize', function () {
         millwood.fn.force_full_width()
     })
-
-//    console.log(millwood)
 })
