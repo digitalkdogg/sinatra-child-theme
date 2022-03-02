@@ -135,7 +135,7 @@ class Give {
         //  'url': _this.vars.rest_url,
           'type': 'POST',
 					'data': {
-                  'action': 'get_stripe_intent2',
+                  'action': 'get_stripe_intent',
                   'amount': parseInt(amount+'00'),
 									'type': _this.stripe.mode,
 									'name': _this.stripe.ownerInfo.owner.name,

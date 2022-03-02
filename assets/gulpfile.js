@@ -48,6 +48,17 @@ function donatejs() {
 
 }
 
+function newsjs() {
+  const source = '../assets/js/news/*.js';
+
+  return src(source)
+      .pipe(changed(source))
+      .pipe(concat('news.min.js'))
+      .pipe(uglify())
+      .pipe(dest('../assets/js/min', {overwrite:true}))
+
+}
+
 function css() {
 
   //  const source = sassPaths;
@@ -88,8 +99,28 @@ function donatecss() {
       //  .pipe(browsersync.stream());
 }
 
+function newscss() {
+
+  //  const source = sassPaths;
+  const source = './css/news/*.scss';
+    //return src(source)
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano())
+        .pipe(dest('./css/'));
+      //  .pipe(browsersync.stream());
+}
+
 
 
 //exports.default = defaultTask
 //exports.task(clear);
-exports.default = series(parallel(js,donatejs,donatecss, css, defaultTask));
+exports.default = series(parallel(js,donatejs,donatecss, newsjs,newscss, css, defaultTask));
