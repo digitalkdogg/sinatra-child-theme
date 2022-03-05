@@ -28,6 +28,7 @@ if ( sinatra_show_post_thumbnail() ) {
 	if ($all_settings['millwood_enable_hero'] == true) {
 		get_template_part( 'template-parts/content/content', 'millwood-hero' );
 	}
+	
 	the_content();
 
 	do_action( 'sinatra_after_page_content' );
