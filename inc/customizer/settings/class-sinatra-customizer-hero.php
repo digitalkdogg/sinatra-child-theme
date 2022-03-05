@@ -368,6 +368,87 @@ if ( ! class_exists( 'Sinatra_Customizer_Hero' ) ) :
 				),
 			);
 
+			// Hero enable.
+			$options['setting']['millwood_enable_hero'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sinatra_sanitize_toggle',
+				'control'           => array(
+					'type'    => 'sinatra-toggle',
+					'section' => 'sinatra_section_hero',
+					'label'   => esc_html__( 'Enable Millwood Hero Section', 'sinatra' ),
+				),
+			);
+
+			// Schema toggle.
+			$options['setting']['millwood_hero_msg'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Message', 'sinatra' ),
+					'description' => esc_html__( 'What text do you want for the.', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Hero Desktop Retina.
+			$options['setting']['millwood_hero_desktop_image'] = array(
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sinatra_sanitize_background',
+				'control'           => array(
+					'type'        => 'sinatra-background',
+					'section'     => 'sinatra_section_hero',
+					'label'       => esc_html__( 'Hero Desktop Image', 'sinatra' ),
+					'description' => esc_html__( 'Upload your desktop image for the hero', 'sinatra' ),
+					'priority'    => 20,
+					'advanced'    => false,
+					'strings'     => array(
+						'select_image' => __( 'Select Desktop Image', 'sinatra' ),
+						'use_image'    => __( 'Select', 'sinatra' ),
+					),
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Hero Desktop Retina.
+			$options['setting']['millwood_hero_mobile_image'] = array(
+				'transport'         => 'postMessage',
+				'sanitize_callback' => 'sinatra_sanitize_background',
+				'control'           => array(
+					'type'        => 'sinatra-background',
+					'section'     => 'sinatra_section_hero',
+					'label'       => esc_html__( 'Hero Mobile Image', 'sinatra' ),
+					'description' => esc_html__( 'Upload your mobile image for the hero', 'sinatra' ),
+					'priority'    => 20,
+					'advanced'    => false,
+					'strings'     => array(
+						'select_image' => __( 'Select Mobile Image', 'sinatra' ),
+						'use_image'    => __( 'Select', 'sinatra' ),
+					),
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+	
+
 			return $options;
 		}
 	}

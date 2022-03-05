@@ -149,11 +149,6 @@ if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
 endif;
 
 
-function get_stripe_intent2 ($parms){
-
-  return "hello";
-}
-
 /**
 * Generates new stripe intent
 * @param array $data Options for the function.
@@ -196,6 +191,24 @@ function get_stripe_intent2 ($parms){
 
        return $response;
 
+ }
+
+ function get_hero_image() {
+  $return = '';
+  $all_settings = get_theme_mods();
+  if (wp_is_mobile() == true) {
+
+    } else {
+      foreach ($all_settings['millwood_hero_desktop_image'] as $key => $image) {
+        //$return = $return . $key . ':' . $image . ';';
+        if ($key == 'background-image') {
+          $return = $image;
+        }
+      }
+    //  $return = $return . '\'';
+    }
+
+  return $return;
  }
 
 

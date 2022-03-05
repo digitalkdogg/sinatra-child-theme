@@ -14,8 +14,13 @@ class Millwood {
                 if (sitename != undefined) {
                   $('body').addClass(sitename);
                 }
-                _this.fn.force_full_width()
+
+                let headerHeight = $('#sinatra-header').height()
+                $('#main.site-main').css({top:headerHeight+'px', position:'relative'})
+
                 _this.fn.get_custom_vars();
+                _this.fn.force_full_width()
+
             },
             'get_custom_vars': function () {
               let customVars = $('input#customvars').val().split('===');
@@ -26,12 +31,11 @@ class Millwood {
               }
             },
             'force_full_width': function () {
-               var windowwidth = $(window).width();
-               var containerwidth = $('#primary.content-area').width();
-               var leftadjust = -Math.abs((windowwidth - containerwidth) / 2);
-
+              var outerwidth = $('#main.site-main').width()
+            
                $('.force-full-width').each(function () {
-                 $(this).css({'width': windowwidth + 'px', 'left': leftadjust + 'px'});
+                  var leftadjust = -Math.abs($(this).position().left);
+                  $(this).css({'width': outerwidth + 'px', 'left': leftadjust + 'px'});
                })
 
             }
