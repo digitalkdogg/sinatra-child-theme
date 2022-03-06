@@ -10,7 +10,7 @@
 
 <style>
 
-#hero {
+/*#hero {
     display:flex;
     flex-direction: row;
     min-height:500px;
@@ -23,7 +23,7 @@
     max-height:500px;
     min-height:300px;
     width: 100%;
-    background-size:contain;
+    background-size:cover;
     background-position:center -100px;
     background-repeat: no-repeat;
 }
@@ -38,6 +38,6 @@
     min-height:500px;
     width: 100%;
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.9) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 80%);
-}
+} */
 
 </style>
