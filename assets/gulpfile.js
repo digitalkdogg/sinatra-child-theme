@@ -119,8 +119,27 @@ function newscss() {
       //  .pipe(browsersync.stream());
 }
 
+function herocss() {
+
+  //  const source = sassPaths;
+  const source = './css/hero/*.scss';
+    //return src(source)
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano())
+        .pipe(dest('./css/'));
+      //  .pipe(browsersync.stream());
+}
 
 
 //exports.default = defaultTask
 //exports.task(clear);
-exports.default = series(parallel(js,donatejs,donatecss, newsjs,newscss, css, defaultTask));
+exports.default = series(parallel(js,donatejs,donatecss, herocss, newsjs,newscss, css, defaultTask));
