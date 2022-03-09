@@ -197,7 +197,12 @@ endif;
   $return = '';
   $all_settings = get_theme_mods();
   if (wp_is_mobile() == true) {
-
+    foreach ($all_settings['millwood_hero_mobile_image'] as $key => $image) {
+      //$return = $return . $key . ':' . $image . ';';
+      if ($key == 'background-image') {
+        $return = $image;
+      }
+    }
     } else {
       foreach ($all_settings['millwood_hero_desktop_image'] as $key => $image) {
         //$return = $return . $key . ':' . $image . ';';

@@ -3,27 +3,55 @@
     flex-direction: row;
     min-height:500px;
     max-height:500px;
+    justify-content: flex-end;
+    box-shadow: 1px 5px 10px #eee;
     overflow:hidden;
 
     .inner-hero {
         height: auto;
-        max-height:500px;
-        min-height:300px;
         width: 100%;
         background-size:cover;
-        background-position:center -100px;
         background-repeat: no-repeat;
+        max-width:auto;
+        @media only screen and (min-width: 800px) {
+            max-width:60vw;
+        }
     }
     .text-wrapper {
-        padding:0 30px 0 150px;
+        padding:0;
         height: auto;
-        max-height:500px;
         display: flex;
-        align-items: center;
-        background: rgba(255,255,255,0.7);
+        align-items: self-end;
+        justify-content: center;
         position: absolute;
         min-height:500px;
         width: 100%;
-        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.9) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 80%);
+        background-color:white;
+        background: linear-gradient(0deg, rgba(233,233,233,1) 0%, rgba(233,233,233,0.5) 40%, rgba(233,233,233,0.2) 60%);
+        h2 {
+            width: 90%;
+            line-height: 1.4;
+            font-size: 20px;
+            text-align:center;
+            font-family: Gruppo;
+            font-style: oblique;
+            color: rgba(0,0,0,0.5);
+            font-weight: bold;
+            @media only screen and (min-width: 800px) {
+                width: 50%;
+                font-size: 40px;
+                text-align:left;
+            }
+        }
+        @media only screen and (min-width: 800px) {
+            background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%, rgba(255,255,255,0.8) 70%,rgba(255,255,255,0.4) 90%, rgba(255,255,255,0.1) 100%);
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 30px 0 100px;
+        }
+        @media only screen and (min-width: 1600px) {
+            background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(255, 255, 255,1) 50%,rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.4) 90%, rgba(255,255,255,0.1) 100%);
+            align-items: center;
+        }
     }
 }
