@@ -74,7 +74,7 @@ function css() {
         .pipe(rename({
             extname: '.css'
         }))
-        .pipe(cssnano())
+        .pipe(cssnano({ zindex: false }))
         .pipe(dest('./css/'));
       //  .pipe(browsersync.stream());
 }
@@ -94,7 +94,7 @@ function donatecss() {
         .pipe(rename({
             extname: '.css'
         }))
-        .pipe(cssnano())
+        .pipe(cssnano({ zindex: false }))
         .pipe(dest('./css/'));
       //  .pipe(browsersync.stream());
 }
@@ -114,7 +114,7 @@ function newscss() {
         .pipe(rename({
             extname: '.css'
         }))
-        .pipe(cssnano())
+        .pipe(cssnano({ zindex: false }))
         .pipe(dest('./css/'));
       //  .pipe(browsersync.stream());
 }
@@ -134,7 +134,7 @@ function herocss() {
         .pipe(rename({
             extname: '.css'
         }))
-        .pipe(cssnano())
+        .pipe(cssnano({ zindex: false }))
         .pipe(dest('./css/'));
       //  .pipe(browsersync.stream());
 }

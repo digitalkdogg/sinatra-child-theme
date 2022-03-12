@@ -3,10 +3,10 @@
     flex-direction: row;
     min-height:500px;
     max-height:500px;
+    z-index:2;
     justify-content: flex-end;
     box-shadow: 1px 5px 10px #eee;
     overflow:hidden;
-    z-index:2;
     .inner-hero {
         height: auto;
         width: 100%;
