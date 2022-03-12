@@ -12,7 +12,7 @@ class News {
         }
 
   			$.ajax({
-				'url': 'index.php/wp-json/cc/v1/latest-cc',
+				'url': '../index.php/wp-json/cc/v1/latest-cc',
 				'type': 'GET',
 				'data': {},
 				'success': function (data) {
