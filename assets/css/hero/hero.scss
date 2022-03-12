@@ -3,7 +3,7 @@
     flex-direction: row;
     min-height:500px;
     max-height:500px;
-    justify-content: flex-end;
+    justify-content: flex-end; 
     box-shadow: 1px 5px 10px #eee;
     overflow:hidden;
     z-index:2;
@@ -21,7 +21,7 @@
         padding:0;
         height: auto;
         display: flex;
-        align-items: self-end;
+        align-items: end;
         justify-content: center;
         position: absolute;
         min-height:500px;
