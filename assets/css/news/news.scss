@@ -37,7 +37,9 @@
       }
     }
     &.show {
-      top:100px;
+      position:fixed;
+      margin-top:25%;
+      margin-bottom:25%;
     }
     .title {
         border-bottom:1px solid #aaa;
