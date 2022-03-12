@@ -4,7 +4,7 @@ class News {
   	this.vars = {'data': {} },
   	this.fn = {
   		'init': function () {
-        $('.si-news-entry').css({'min-height':($(window).height() - 406)+'px'})
+      //  $('.si-news-entry').css({'min-height':($(window).height() - 406)+'px'})
 
         var parent = $('.si-news-entry');
         if ($('.si-news-entry').find('.wp-block-cover').length > 0) {
