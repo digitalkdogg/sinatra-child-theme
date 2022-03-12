@@ -131,8 +131,6 @@ class Give {
 
 				$.ajax({
           'url': '../index.php/wp-json/stripe/v1/create_intent',
-          //'url': _this.vars.rest_url + '/stripe/v1/create_intent',
-        //  'url': _this.vars.rest_url,
           'type': 'POST',
 					'data': {
                   'action': 'get_stripe_intent',
