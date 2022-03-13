@@ -213,7 +213,7 @@ endif;
     //  $return = $return . '\'';
     }
 
-    wp_enqueue_style('herocss', get_stylesheet_directory_uri() . '/assets/css/hero.css', array(), '1.0.3', false);
+    wp_enqueue_style('herocss', get_stylesheet_directory_uri() . '/assets/css/hero.css', array(), '1.0.4', false);
 
     //wp_enqueue_style( 'herocss', get_stylesheet_directory_uri() . '/assets/css/hero.css' );
   return $return;

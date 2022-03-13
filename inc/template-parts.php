@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 function sinatra_meta_viewport() {
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scaleable=no, shrink-to-fit=no">';
 }
 add_action( 'wp_head', 'sinatra_meta_viewport', 1 );
 
