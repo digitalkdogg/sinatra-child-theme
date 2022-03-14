@@ -1,8 +1,21 @@
 body {
   font-size:18px;
   &.si-sticky-header {
-    #sinatra-header-inner {
-      backdrop-filter: blur(7px) saturate(0.5);
+    #sinatra-header {
+      #sinatra-header-inner {
+        backdrop-filter: blur(7px) saturate(0.5);
+        .sinatra-logo {
+          .site-title {
+            font-size: 22px;
+            @media only screen and (min-width: 800px) {
+              font-size:24px;
+            }
+            @media only screen and (min-width: 1200px) {
+              font-size:30px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -12,7 +25,7 @@ body {
       .si-container.si-header-container {
         padding:0 20px;
         .sinatra-logo .site-title {
-          font-size: 1.1rem;
+          font-size: 22px;
         }
       }
     }
