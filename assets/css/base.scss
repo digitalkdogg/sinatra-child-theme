@@ -44,9 +44,20 @@ body {
     #primary {
       margin-top:0;
     }
-    .force-full-width .wp-block-cover__inner-container {
+    .force-full-width { 
+      .wp-block-cover__inner-container {
         max-width: 1600px;
         padding:0 20px;
+      }
+    }
+
+    .force-full-width-mobile {
+      width: 120%;
+      left: -10%;
+      @media only screen and (min-width: 800px) {
+        width:100%;
+        left:0;
+      }
     }
 
     hr {
