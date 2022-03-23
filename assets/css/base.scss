@@ -126,7 +126,8 @@ body {
     .position-top-center {
       align-items:start;
     }
-    .flex {
+
+    .flex, .flex-inner div:first-child {
       display:flex;
       &.flex-column-mobile {
         flex-direction: column;
