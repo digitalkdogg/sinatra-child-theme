@@ -16,7 +16,7 @@ class Millwood {
                 }
 
                 if ($('body').hasClass('home')==true) {
-                  let headerHeight = $('#sinatra-header').height()
+                  let headerHeight = $('#sinatra-header').height() - 8
                   $('#main.site-main').css({top:headerHeight+'px', position:'relative'})
                 }
                 _this.fn.get_custom_vars();
