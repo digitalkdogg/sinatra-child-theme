@@ -1,8 +1,21 @@
 body {
   font-size:18px;
   &.si-sticky-header {
-    #sinatra-header-inner {
-      backdrop-filter: blur(7px) saturate(0.5);
+    #sinatra-header {
+      #sinatra-header-inner {
+        backdrop-filter: blur(7px) saturate(0.5);
+        .sinatra-logo {
+          .site-title {
+            font-size: 22px;
+            @media only screen and (min-width: 800px) {
+              font-size:24px;
+            }
+            @media only screen and (min-width: 1200px) {
+              font-size:30px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -12,7 +25,7 @@ body {
       .si-container.si-header-container {
         padding:0 20px;
         .sinatra-logo .site-title {
-          font-size: 1.1rem;
+          font-size: 22px;
         }
       }
     }
@@ -31,9 +44,20 @@ body {
     #primary {
       margin-top:0;
     }
-    .force-full-width .wp-block-cover__inner-container {
+    .force-full-width { 
+      .wp-block-cover__inner-container {
         max-width: 1600px;
         padding:0 20px;
+      }
+    }
+
+    .force-full-width-mobile {
+      width: 120%;
+      left: -10%;
+      @media only screen and (min-width: 800px) {
+        width:100%;
+        left:0;
+      }
     }
 
     hr {
@@ -102,7 +126,8 @@ body {
     .position-top-center {
       align-items:start;
     }
-    .flex {
+
+    .flex, .flex-inner div:first-child {
       display:flex;
       &.flex-column-mobile {
         flex-direction: column;
@@ -141,6 +166,12 @@ body {
           }
         }
       }
+    }
+  }
+  #sinatra-footer {
+    hr {
+      margin-top:0;
+      margin-bottom:0;
     }
   }
 }
