@@ -88,6 +88,19 @@ function get_stripe_var() {
 
 }
 
+add_filter(
+  'get_the_archive_title',
+  function ( $title ) {
+      if ( is_post_type_archive( 'tribe_events' ) ) {
+          $title = sprintf( 
+      __( '%s' ), 
+      post_type_archive_title( '', false ) 
+    );
+      }
+
+      return $title;
+  }
+);
 
 
 if ( ! function_exists( 'sinatra_footer_widgets' ) ) :
