@@ -139,6 +139,26 @@ function herocss() {
       //  .pipe(browsersync.stream());
 }
 
+function herocss() {
+
+  //  const source = sassPaths;
+  const source = './css/events/*.scss';
+    //return src(source)
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano({ zindex: false }))
+        .pipe(dest('./css/'));
+      //  .pipe(browsersync.stream());
+}
+
 
 //exports.default = defaultTask
 //exports.task(clear);

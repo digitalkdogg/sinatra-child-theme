@@ -27,6 +27,8 @@ if ( ! function_exists( 'enqueue_custom_stuff' ) ) {
     wp_enqueue_script( 'customjs', get_stylesheet_directory_uri() . '/assets/js/min/base.min.js' );
     wp_enqueue_style( 'millwood-base', get_stylesheet_directory_uri() . '/assets/css/base.css' );
 
+    wp_enqueue_style( 'event-calendar-overrides', get_stylesheet_directory_uri() . '/assets/css/events.css' );
+
     if (is_page_template( 'page-templates/donate-page.php' )) {
             wp_enqueue_script( 'donatejs', get_stylesheet_directory_uri() . '/assets/js/min/donate.min.js' );
             wp_enqueue_style( 'donatecss', get_stylesheet_directory_uri() . '/assets/css/donate.css' );
