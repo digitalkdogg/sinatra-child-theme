@@ -43,7 +43,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_custom_stuff' );
 
 
 if ( ! defined( 'SINATRA_THEME_PATH' ) ) {
-  define( 'SINATRA_THEME_PATH', get_parent_theme_file_path() . '-child');
+  define( 'SINATRA_THEME_PATH', get_stylesheet_directory() );
 }
 // Customizer.
 require_once SINATRA_THEME_PATH . '/inc/customizer/class-sinatra-customizer.php';
