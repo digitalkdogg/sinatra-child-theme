@@ -28,8 +28,16 @@ if ( sinatra_show_post_thumbnail() ) {
 	if ($all_settings['millwood_enable_hero'] == true) {
 		get_template_part( 'template-parts/content/content', 'millwood-hero' );
 	}
-	
+
+	if ( get_theme_mod( 'millwood_enable_quick_info', true ) ) {
+		get_template_part( 'template-parts/content/content', 'millwood-quick-info' );
+	}
+
 	the_content();
+
+	if ( get_theme_mod( 'millwood_enable_give_banner', true ) ) {
+		get_template_part( 'template-parts/content/content', 'millwood-give-banner' );
+	}
 
 	do_action( 'sinatra_after_page_content' );
 	?>

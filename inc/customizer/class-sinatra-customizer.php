@@ -231,6 +231,7 @@ if ( ! class_exists( 'Sinatra_Customizer' ) ) :
 				'main-header',
 				'main-navigation',
 				'hero',
+				'millwood-home',
 				'page-header',
 				'logo',
 				'single-post',

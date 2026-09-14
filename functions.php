@@ -37,6 +37,12 @@ if ( ! function_exists( 'enqueue_custom_stuff' ) ) {
             wp_enqueue_script( 'donatejs', get_stylesheet_directory_uri() . '/assets/js/min/news.min.js' );
             wp_enqueue_style( 'donatecss', get_stylesheet_directory_uri() . '/assets/css/news.css' );
     }
+
+    if (is_page_template( 'page-templates/home-page.php' )) {
+            wp_enqueue_style( 'dashicons' );
+            wp_enqueue_style( 'millwood-quick-info', get_stylesheet_directory_uri() . '/assets/css/quick-info.css' );
+            wp_enqueue_style( 'millwood-give-banner', get_stylesheet_directory_uri() . '/assets/css/give-banner.css' );
+    }
   }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_stuff' );

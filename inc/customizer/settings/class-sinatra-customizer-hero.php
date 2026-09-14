@@ -423,6 +423,135 @@ if ( ! class_exists( 'Sinatra_Customizer_Hero' ) ) :
 				),
 			);
 
+			// Hero eyebrow.
+			$options['setting']['millwood_hero_eyebrow'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Eyebrow', 'sinatra' ),
+					'description' => esc_html__( 'Small label shown above the hero headline.', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Hero subtext.
+			$options['setting']['millwood_hero_subtext'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-textarea',
+					'label'       => esc_html__( 'Millwood Hero Subtext', 'sinatra' ),
+					'description' => esc_html__( 'Short supporting sentence below the headline.', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Hero meta line (service time).
+			$options['setting']['millwood_hero_meta'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Meta', 'sinatra' ),
+					'description' => esc_html__( 'e.g. "Sundays at 10:00 AM".', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Primary CTA text.
+			$options['setting']['millwood_hero_cta_primary_text'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Primary Button Text', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Primary CTA link.
+			$options['setting']['millwood_hero_cta_primary_link'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'esc_url_raw',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Primary Button Link', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Secondary CTA text.
+			$options['setting']['millwood_hero_cta_secondary_text'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Secondary Button Text', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
+			// Secondary CTA link.
+			$options['setting']['millwood_hero_cta_secondary_link'] = array(
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'esc_url_raw',
+				'control'           => array(
+					'type'        => 'sinatra-text',
+					'label'       => esc_html__( 'Millwood Hero Secondary Button Link', 'sinatra' ),
+					'section'     => 'sinatra_section_hero',
+					'required'    => array(
+						array(
+							'control'  => 'millwood_enable_hero',
+							'value'    => true,
+							'operator' => '==',
+						),
+					)
+				),
+			);
+
 			// Hero Desktop Retina.
 			$options['setting']['millwood_hero_mobile_image'] = array(
 				'transport'         => 'postMessage',

@@ -139,7 +139,7 @@ function herocss() {
       //  .pipe(browsersync.stream());
 }
 
-function herocss() {
+function eventscss() {
 
   //  const source = sassPaths;
   const source = './css/events/*.scss';
@@ -159,7 +159,41 @@ function herocss() {
       //  .pipe(browsersync.stream());
 }
 
+function quickinfocss() {
+
+  const source = './css/quick-info/*.scss';
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano({ zindex: false }))
+        .pipe(dest('./css/'));
+}
+
+function givebannercss() {
+
+  const source = './css/give-banner/*.scss';
+    return src(source)
+        .pipe(changed(source))
+        .pipe(sass({includePaths: sassPaths, outputStyle: 'compressed' }))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({
+            extname: '.css'
+        }))
+        .pipe(cssnano({ zindex: false }))
+        .pipe(dest('./css/'));
+}
+
 
 //exports.default = defaultTask
 //exports.task(clear);
-exports.default = series(parallel(js,donatejs,donatecss, herocss, newsjs,newscss, css, defaultTask));
+exports.default = series(parallel(js,donatejs,donatecss, herocss, eventscss, quickinfocss, givebannercss, newsjs,newscss, css, defaultTask));
